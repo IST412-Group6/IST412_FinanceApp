@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 @Controller
 public class HomeController {
 
+    @RequestMapping(value = "/", method = RequestMethod.GET)
 
     @GetMapping("/home")
     public String home(Locale locale, Model model) {
