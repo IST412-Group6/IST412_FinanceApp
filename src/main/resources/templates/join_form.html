@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    <title>ATZ Finance - Join Form</title>
+    <style>
+        table, td {
+            text-align: left;
+        }
+        td {
+            padding: 25px;
+
+        }
+        table{
+           
+            width: 100%;
+            text-align: left;
+
+
+        }
+        input{
+            width: 1000px;
+            height: 35px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<!-- navigation bar-->
+<nav class="navbar navbar-inverse" style="position: sticky; top:0;">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <li> <p style="align-self: center; margin-top: 10px;font-size: large; color:  ghostwhite">ATZ Finance</p></li>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="/home">Main</a></li>
+            <li><a href="#"><em class="glyphicon glyphicon-user" aria-disabled="true"></em>Join</a></li>
+            <li><a href="/login"><em class="glyphicon glyphicon-log-in"></em>Sing-In</a></li>
+        </ul>
+    </div>
+</nav>
+<!-- main Content-->
+<div class="container" style="margin-top: 10px; text-align: center;background-color: darkgrey">
+    <h1 style="color: black;">Join - Member Form</h1><br>
+
+    <table>
+        <form id="join_form" name="join_form" action="JoinController" method="post" style="padding-top: 50px">
+
+            <tr>
+                <td>
+                <label for = "userId">ID:<br>
+                    <input type="text" id="userId"  required>
+                </label>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label for = "userPassword">Password:<br>
+                        <input type="text" id="userPassword"  required>
+                    </label>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label for="userName">Name:<br>
+                        <input type="text" id="userName"  required>
+                    </label>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label for = "userEmail">E-mail:<br>
+                        <input type="text" id="userEmail"  required>
+                    </label>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label for="userPhone">Phone:<br>
+                        <input type="text" id="userPhone" required>
+                    </label>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label for="userAddress">Address(Optional):<br>
+                        <input type="text" id="userAddress" placeholder="Optional(Required for loan application later)" required="false">
+                    </label>
+                </td>
+            </tr>
+
+        </form>
+    </table>
+    <button form="join_form" type="submit" style="width: 250px; height: 50px">Join</button>
+
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br>
+
+<!--footer -->
+<footer class="site-footer" style="position: relative;bottom: 30px; left: 250px ">
+    <div class="container">
+        <p class="text-justify">Made By:<br>
+            Alexa Mclnvaille,   Amirhamzah Waseem Chaudhry,    Jihun Suk,  Othman Adebayo Gbadamassi</p>
+    </div>
+    <div class="container">
+
+        <p class="copyright-text">Copyright &copy; 2021 All Rights Reserved by
+            <span>IST412 - Group 6</span>.
+        </p>
+    </div>
+</footer>
+
+
+
+</body>
+</html>
