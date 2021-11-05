@@ -13,7 +13,7 @@ public class HomeController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
 
-    @GetMapping("/home")
+    @GetMapping("/")
     public String home(Locale locale, Model model) {
 
         return "home";
