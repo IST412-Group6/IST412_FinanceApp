@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 public class HomeController {
 
 
+
     @GetMapping("/home")
     public String home(Locale locale, Model model) {
 

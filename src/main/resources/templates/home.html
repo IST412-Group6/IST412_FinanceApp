@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
@@ -15,9 +15,9 @@
             <li> <p style="align-self: center; margin-top: 10px;font-size: large; color:  ghostwhite">ATZ Finance</p></li>
         </div>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="/">Main</a></li>
-            <li><a href="/join"><em class="glyphicon glyphicon-user"></em>Join</a></li>
-            <li><a href="/login"><em class="glyphicon glyphicon-log-in"></em>Sign-In</a></li>
+            <li><a th:href="@{#}">Main</a></li>
+            <li><a th:href="@{/join}"><em class="glyphicon glyphicon-user"></em>Join</a></li>
+            <li><a th:href="@{/login}"><em class="glyphicon glyphicon-log-in"></em>Sign-In</a></li>
 
         </ul>
     </div>

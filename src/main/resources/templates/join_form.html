@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
@@ -36,9 +36,9 @@
             <li> <p style="align-self: center; margin-top: 10px;font-size: large; color:  ghostwhite">ATZ Finance</p></li>
         </div>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="/">Main</a></li>
-            <li><a href="#"><em class="glyphicon glyphicon-user" aria-disabled="true"></em>Join</a></li>
-            <li><a href="/login"><em class="glyphicon glyphicon-log-in"></em>Sign-In</a></li>
+            <li><a th:href="@{/home}">Main</a></li>
+            <li><a th:href="@{#}"><em class="glyphicon glyphicon-user" aria-disabled="true"></em>Join</a></li>
+            <li><a th:href="@{/login}"><em class="glyphicon glyphicon-log-in"></em>Sign-In</a></li>
         </ul>
     </div>
 </nav>
@@ -47,7 +47,7 @@
     <h1 style="color: black;">Join - Member Form</h1><br>
 
     <table>
-        <form id="join_form" name="join_form" action="JoinController" method="post" style="padding-top: 50px">
+        <form id="join_form" name="join_form" th:action="@{/join/newMember}"  method="post" style="padding-top: 50px">
 
             <tr>
                 <td>
