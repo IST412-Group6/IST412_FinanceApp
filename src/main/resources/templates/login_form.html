@@ -39,7 +39,7 @@
         <ul class="nav navbar-nav navbar-right">
             <li><a th:href="@{/home}">Main</a></li>
             <li><a th:href="@{/join}"><em class="glyphicon glyphicon-user" aria-disabled="true"></em>Join</a></li>
-            <li><a th:href="@{/login}"<em class="glyphicon glyphicon-log-in"></em>Sign-In</a></li>
+            <li><a th:href="@{/login}"><em class="glyphicon glyphicon-log-in"></em>Sign-In</a></li>
         </ul>
     </div>
 </nav>
@@ -48,12 +48,12 @@
     <h1 style="color: black;">Login</h1><br>
 
     <table>
-        <form id="login_form" name="login_form" th:action="@{/loginAut}"  method="post" style="padding-top: 50px">
+        <form id="login_form" name="login_form" th:action="@{/loginAut}"  th:method="POST" style="padding-top: 50px">
 
             <tr>
                 <td>
                     <label for = "userId">ID:<br>
-                        <input type="text" id="userId"  required>
+                        <input type="text" id="userId" name="userId" required>
                     </label>
                 </td>
             </tr>
@@ -61,12 +61,10 @@
             <tr>
                 <td>
                     <label for = "userPassword">Password:<br>
-                        <input type="text" id="userPassword"  required>
+                        <input type="password" id="userPassword" name="userPassword" required>
                     </label>
                 </td>
             </tr>
-
-
         </form>
     </table>
     <button form="login_form" type="submit" style="width: 250px; height: 50px">Login</button>
@@ -87,7 +85,10 @@
         </p>
     </div>
 </footer>
+<script type="text/javascript">
 
+
+</script>
 
 
 </body>

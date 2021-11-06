@@ -21,8 +21,8 @@ public class Account implements Serializable {
     @Column(name = "account_balance")
     private float accountBalance;
 
-/*    //I do not know if this is correct?
-    @ManyToOne()*/
+ //I do not know if this is correct?
+    @ManyToOne()
 
 
     public Long getAccountId() {

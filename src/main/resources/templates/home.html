@@ -9,23 +9,12 @@
 <body>
 
 <!-- navigation bar-->
-<nav class="navbar navbar-inverse" style="position: sticky; top:0;">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <li> <p style="align-self: center; margin-top: 10px;font-size: large; color:  ghostwhite">ATZ Finance</p></li>
-        </div>
-        <ul class="nav navbar-nav navbar-right">
-            <li><a th:href="@{#}">Main</a></li>
-            <li><a th:href="@{/join}"><em class="glyphicon glyphicon-user"></em>Join</a></li>
-            <li><a th:href="@{/login}"><em class="glyphicon glyphicon-log-in"></em>Sign-In</a></li>
-
-        </ul>
-    </div>
-</nav>
+<div style="position:sticky; top:0 ;" th:if = "${Session} != null" th:insert="inc/Sessionheader">...</div>
+<div style="position:sticky; top:0 ;" th:unless = "${Session} != null" th:insert="inc/header">...</div>
 <!-- main Content-->
 <div class="container" style="margin-top: 150px; text-align: center;background-color: darkgrey">
     <h1 style="color: black;">Welcome to the ATZ Finance</h1><br>
-    <span style="font-size: larger; color: black; ">
+    <span style="font-size: larger; color: black; " id="Here">
         ATZ Finance has 15 offices in the South, Midwest, and Northeast regions of United States.<br>
         Customers who want to borrow money for various reasons are welcome to submit online loan applications.<br>
         The type of loans provided by ATZ Finance include personal loans, business loans, car loans, renovation loans, project loans, etc.<br>
