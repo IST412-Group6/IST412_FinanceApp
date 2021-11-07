@@ -18,13 +18,13 @@ public class AccountServiceImpl implements AccountService{
     }
 
     @Override
-    public Account getAccountById(long id) {
-        Optional<Account> optional = accountRepository.findById(id);
+    public Account getAccountById(Long accountId) {
+        Optional<Account> optional = accountRepository.findById(accountId);
         Account account = null;
         if (optional.isPresent()) {
             account = optional.get();
         } else {
-            throw new RuntimeException(" Course not found for id :: " + id);
+            throw new RuntimeException(" Course not found for id :: " + accountId);
         }
         return account;
     }
