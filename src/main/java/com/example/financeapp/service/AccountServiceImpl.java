@@ -24,7 +24,7 @@ public class AccountServiceImpl implements AccountService{
         if (optional.isPresent()) {
             account = optional.get();
         } else {
-            throw new RuntimeException(" Course not found for id :: " + accountId);
+            throw new RuntimeException("Account not found for id : " + accountId);
         }
         return account;
     }

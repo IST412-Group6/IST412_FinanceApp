@@ -2,6 +2,7 @@ package com.example.financeapp.controller;
 
 import java.util.Locale;
 
+import com.example.financeapp.model.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,7 +21,10 @@ public class HomeController {
     }
 
     @GetMapping("/join")
-    public String join (){
+    public String join (Model model){
+        //create model attribute to bind form data
+        User user = new User();
+        model.addAttribute("user", user);
         return "join_form";
     }
 

@@ -47,7 +47,7 @@
     <h1 style="color: black;">Join - Member Form</h1><br>
 
     <table>
-        <form id="join_form" name="join_form" th:action="@{/join/newMember}"  method="post" style="padding-top: 50px">
+        <form id="join_form" name="join_form" th:action="@{/join/newMember}"  th:object="${user}" method="POST" style="padding-top: 50px">
 
             <tr>
                 <td>
@@ -60,7 +60,7 @@
             <tr>
                 <td>
                     <label for = "userPassword">Password:<br>
-                        <input type="text" id="userPassword"  required>
+                        <input type="text" id="userPassword" th:field="*{userPassword}" required>
                     </label>
                 </td>
             </tr>
@@ -68,7 +68,7 @@
             <tr>
                 <td>
                     <label for="userName">Name:<br>
-                        <input type="text" id="userName"  required>
+                        <input type="text" id="userName" th:field="*{userName}" required>
                     </label>
                 </td>
             </tr>
@@ -76,7 +76,7 @@
             <tr>
                 <td>
                     <label for = "userEmail">E-mail:<br>
-                        <input type="text" id="userEmail"  required>
+                        <input type="text" id="userEmail" th:field="*{userEmail}" required>
                     </label>
                 </td>
             </tr>
@@ -84,7 +84,7 @@
             <tr>
                 <td>
                     <label for="userPhone">Phone:<br>
-                        <input type="text" id="userPhone" required>
+                        <input type="text" id="userPhone" th:field="*{userPhone}" required>
                     </label>
                 </td>
             </tr>
@@ -92,7 +92,7 @@
             <tr>
                 <td>
                     <label for="userAddress">Address(Optional):<br>
-                        <input type="text" id="userAddress" placeholder="Optional(Required for loan application later)" required="false">
+                        <input type="text" id="userAddress" th:field="*{userAddress}" placeholder="Optional(Required for loan application later)">
                     </label>
                 </td>
             </tr>
