@@ -15,15 +15,18 @@ public class UserServiceImpl implements  UserService{
     //Authenticates user log in credentials (id and password)
     @Override
     public String authenticateUser(Long userID, String userPassword) {
-    String result=null;
-        User user = userRepository.getById(userID);
-    if (user.getUserPassword().equals(userPassword)){
-        result =  "o";
-        } else{
-        result = "x";
-    }
-     return result;
-    }
+        String result = null;
+        System.out.println("HERE");
+        Optional<User> user = userRepository.findById(userID);
+        if (user.isPresent()) {
+            if (user.get().getUserPassword().equals(userPassword)) {
+                result = "o";
+            } else {
+                result = "x";
+            }
+        } else {result = "x";}
+            return result;
+        }
 
 
     @Override

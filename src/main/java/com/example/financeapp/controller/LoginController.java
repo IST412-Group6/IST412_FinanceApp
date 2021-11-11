@@ -22,10 +22,18 @@ public class LoginController {
 
     @PostMapping("/loginAut")
     public String loginAut(Model model, HttpServletRequest request,
-                           @RequestParam("userId") Long userId,
+                           @RequestParam(value = "userId")  Long userId,
                            @RequestParam("userPassword") String userPassword){
-    String Result = userService.authenticateUser(userId, userPassword);
-    System.out.println(Result);
+
+
+
+      String Result = null;
+      String result = null;
+
+      Result = userService.authenticateUser(userId, userPassword);
+
+      System.out.println(Result);
+
     if (Result =="o"){
 
         HttpSession session = request.getSession();
@@ -33,11 +41,11 @@ public class LoginController {
         String checkSession = String.valueOf(
                 request.getSession().getAttribute("userid"));
         model.addAttribute("Session", checkSession);
-    } else {
-        String result = "x";
-        model.addAttribute("Session", result);
+         result = "/home";
+    } else if (Result =="x") {
+         result = "/login_form";
     }
 
-    return "/home";
+    return result;
     }
 }
