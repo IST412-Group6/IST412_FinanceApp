@@ -28,10 +28,21 @@ public class UserServiceImpl implements  UserService{
             return result;
         }
 
+    @Override
+    public User getUserByCustomerNum(Long customerNum) {
+        Optional<User> optional = userRepository.findById(customerNum);
+        User user = null;
+        if (optional.isPresent()) {
+            user = optional.get();
+        } else {
+            throw new RuntimeException("User not found for customer number: " + customerNum);
+        }
+        return user;
+    }
 
     @Override
-    public User getUserById(Long userId) {
-        Optional<User> optional = userRepository.findById(userId);
+    public User getUserByUserId(String userId) {
+        Optional<User> optional = userRepository.findByUserId(userId);
         User user = null;
         if (optional.isPresent()) {
             user = optional.get();

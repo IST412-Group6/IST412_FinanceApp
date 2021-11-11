@@ -19,14 +19,10 @@ public class LoginController {
     UserService userService;
 
 
-
     @PostMapping("/loginAut")
     public String loginAut(Model model, HttpServletRequest request,
                            @RequestParam(value = "userId")  String userId,
                            @RequestParam("userPassword") String userPassword){
-
-
-
       String Result = null;
       String result = null;
 

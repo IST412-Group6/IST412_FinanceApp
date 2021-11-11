@@ -10,7 +10,6 @@ import java.util.Set;
 public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    //change this to customerNumber
     private Long customerNum;
 
     @Column(name = "user_id")

@@ -12,7 +12,9 @@ public interface UserService {
     // authenticate user's log in credentials
     String authenticateUser(String userId, String userPassword);
 
-    User getUserById(Long userId);
+    User getUserByCustomerNum(Long customerNum);
+
+    User getUserByUserId(String userId);
 
     void saveUser(User user);
 }
