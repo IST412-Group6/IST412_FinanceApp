@@ -11,15 +11,23 @@ public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     //change this to customerNumber
-    private Long userId;
+    private Long customerNum;
+
+    @Column(name = "user_id")
+    private String userId;
+
     @Column(name = "user_name")
     private String userName;
+
     @Column(name = "user_password")
     private String userPassword;
+
     @Column(name = "user_email")
     private String userEmail;
+
     @Column(name = "user_phone")
     private String userPhone;
+
     @Column(name = "user_address")
     private String userAddress;
 
@@ -31,9 +39,21 @@ public class User implements Serializable {
 
     public Set<Account> accounts = new HashSet<>();
 
-    public Long getUserId() { return userId; }
+    public Long getCustomerNum() {
+        return customerNum;
+    }
 
-    public void setUserId(Long userId) { this.userId = userId; }
+    public void setCustomerNum(Long customerNum) {
+        this.customerNum = customerNum;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
 
     public String getUserName() { return userName; }
 

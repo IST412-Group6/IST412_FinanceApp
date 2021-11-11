@@ -22,7 +22,7 @@ public class LoginController {
 
     @PostMapping("/loginAut")
     public String loginAut(Model model, HttpServletRequest request,
-                           @RequestParam(value = "userId")  Long userId,
+                           @RequestParam(value = "userId")  String userId,
                            @RequestParam("userPassword") String userPassword){
 
 

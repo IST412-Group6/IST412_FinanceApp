@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 public interface UserService {
 
     // authenticate user's log in credentials
-    String authenticateUser(Long userId, String userPassword);
+    String authenticateUser(String userId, String userPassword);
 
     User getUserById(Long userId);
 
