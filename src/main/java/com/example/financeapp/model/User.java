@@ -30,11 +30,13 @@ public class User implements Serializable {
     @Column(name = "user_address")
     private String userAddress;
 
-    //user will also have account which will be mapped similar to student to course
+    //user will have account(s) which will be mapped similar to student to course
     @OneToMany()
     @JoinTable(name = "user_account",
             joinColumns = {@JoinColumn(name = "userId")},
             inverseJoinColumns = {@JoinColumn(name = "accountId")})
+
+    // user will also have loan(s), but not sure how to make this connection yet...
 
     public Set<Account> accounts = new HashSet<>();
 
