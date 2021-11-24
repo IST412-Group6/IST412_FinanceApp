@@ -26,6 +26,7 @@ public class LoginController {
       String Result = null;
       String result = null;
 
+
       Result = userService.authenticateUser(userId, userPassword);
 
       System.out.println(Result);
@@ -37,7 +38,7 @@ public class LoginController {
         String checkSession = String.valueOf(
                 request.getSession().getAttribute("userid"));
         model.addAttribute("Session", checkSession);
-         result = "/home";
+         result = "/customerMain";
     } else if (Result =="x") {
          result = "/login_form";
     }

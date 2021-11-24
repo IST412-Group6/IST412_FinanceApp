@@ -1,17 +1,27 @@
 <!DOCTYPE html>
 
-<nav class="navbar navbar-inverse" style="position: sticky; top:0;">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <li> <p style="align-self: center; margin-top: 10px;font-size: large; color:  ghostwhite">ATZ Finance</p></li>
-    </div>
-    <ul class="nav navbar-nav navbar-right">
-      <li><a th:href="@{#}">Main</a></li>
-      <li><a th:href="@{/join}"><em class="glyphicon glyphicon-user"></em>Join</a></li>
-      <li><a th:href="@{/login}"><em class="glyphicon glyphicon-log-in"></em>Sign-In</a></li>
 
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" th:href="@{/home}">ATZ Finance</a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item ">
+        <a class="nav-link" th:href="@{/home}"> <span class="fa fa-home" aria-hidden="true"></span>&nbsp;Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/dashboard}"> <span class="fa fa-dashboard" aria-hidden="true"></span>&nbsp;Dashboard</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/login}"> <span class="fa fa-user-circle-o" aria-hidden="true"></span>&nbsp;Log-In</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/join}"> <span class="fa fa-address-book" aria-hidden="true"></span>&nbsp;Join</a>
+      </li>
     </ul>
   </div>
 </nav>
-
-

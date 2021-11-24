@@ -3,8 +3,10 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
-    <title>ATZ Finance - Login Form</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>    <title>ATZ Finance - Login Form</title>
     <style>
         table, td {
             text-align: left;
@@ -31,7 +33,10 @@
 <body>
 
 <!-- navigation bar-->
-<nav class="navbar navbar-inverse" style="position: sticky; top:0;">
+<!-- navigation bar-->
+<div style="position:sticky; top:0 ;" th:if = "${Session} != null" th:insert="inc/Sessionheader">...</div>
+<div style="position:sticky; top:0 ;" th:unless = "${Session} != null" th:insert="inc/header">...</div>
+<!--<nav class="navbar navbar-inverse" style="position: sticky; top:0;">
     <div class="container-fluid">
         <div class="navbar-header">
             <li> <p style="align-self: center; margin-top: 10px;font-size: large; color:  ghostwhite">ATZ Finance</p></li>
@@ -42,7 +47,7 @@
             <li><a th:href="@{/login}"><em class="glyphicon glyphicon-log-in"></em>Sign-In</a></li>
         </ul>
     </div>
-</nav>
+</nav>-->
 <!-- main Content-->
 <div class="container" style="margin-top: 10px; text-align: center;background-color: darkgrey">
     <h1 style="color: black;">Login</h1><br>

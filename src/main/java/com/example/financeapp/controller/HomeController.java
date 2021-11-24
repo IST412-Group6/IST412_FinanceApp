@@ -32,4 +32,11 @@ public class HomeController {
     public String login(){
         return "login_form";
     }
+
+    @GetMapping("/dashboard")
+    public String dashboard(){
+        return "customerMain";
+    }
+
 }
+
