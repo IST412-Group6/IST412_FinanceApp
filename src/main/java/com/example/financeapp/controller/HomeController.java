@@ -9,14 +9,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.ui.Model;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 @Controller
 public class HomeController {
 
 
 
     @GetMapping("/home")
-    public String home(Locale locale, Model model) {
-
+    public String home(Locale locale, Model model, HttpServletRequest request) {
+        if(request.getSession() != null){
+            String checkSession = String.valueOf(
+                    request.getSession().getAttribute("userid"));
+            model.addAttribute("Session", checkSession);
+        }
         return "home";
     }
 
@@ -34,7 +41,12 @@ public class HomeController {
     }
 
     @GetMapping("/dashboard")
-    public String dashboard() {
+    public String dashboard(Model model, HttpServletRequest request)
+    {
+        HttpSession session = request.getSession();
+        String checkSession = String.valueOf(
+                request.getSession().getAttribute("userid"));
+        model.addAttribute("Session", checkSession);
         return "customerMain";
     }
 
