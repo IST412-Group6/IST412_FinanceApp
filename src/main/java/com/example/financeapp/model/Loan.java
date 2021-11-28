@@ -27,7 +27,6 @@ public class Loan implements Serializable {
     @Column(name = "loan_status")
     private String loanStatus;
 
-    // not sure how to make this association
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "customer_num", nullable = false)

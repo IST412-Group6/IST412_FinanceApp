@@ -24,6 +24,13 @@ public class DashboardController {
     @Autowired
     private AccountService accountService;
 
+    //these values will come from loan class
+    //currApp = loanStatus
+    //currAppDate =
+    //currAppType = loanType
+    //currAppDuration = loanDuration
+    //loan amount
+
     //need to make sure that this gets associated with the correct user
     //when new application button clicked, get loan application form
     @GetMapping("/newLoan")
