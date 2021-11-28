@@ -2,10 +2,8 @@ package com.example.financeapp.controller;
 
 import com.example.financeapp.model.Loan;
 import com.example.financeapp.model.User;
-import com.example.financeapp.repository.AccountRepository;
-import com.example.financeapp.repository.UserRepository;
-import com.example.financeapp.service.AccountService;
-import com.example.financeapp.service.UserService;
+import com.example.financeapp.repository.*;
+import com.example.financeapp.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,9 +18,13 @@ public class DashboardController {
     @Autowired
     private AccountRepository accountRepository;
     @Autowired
+    private LoanRepository loanRepository;
+    @Autowired
     private UserService userService;
     @Autowired
     private AccountService accountService;
+   // @Autowired
+  //  private LoanService loanService;
 
     //these values will come from loan class
     //currApp = loanStatus
@@ -30,6 +32,7 @@ public class DashboardController {
     //currAppType = loanType
     //currAppDuration = loanDuration
     //loan amount
+
 
     //need to make sure that this gets associated with the correct user
     //when new application button clicked, get loan application form
