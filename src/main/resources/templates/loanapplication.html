@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+    <title>ATZ Finance - New Application</title>
+    <style>
+        <style>
+        html, body {
+            min-height: 100%;
+        }
+        body, div, form, input, select, textarea, p {
+            padding: 0;
+            margin: 0;
+            outline: none;
+            font-family: Roboto, Arial, sans-serif;
+            font-size: 14px;
+            color: #666;
+            line-height: 22px;
+        }
+        h1 {
+            position: absolute;
+            margin: 0;
+            font-size: 32px;
+            color: #fff;
+            z-index: 2;
+        }
+        h5 {
+            margin: 10px 0;
+        }
+        .testbox {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: inherit;
+            padding: 20px;
+        }
+        form {
+            width: 100%;
+            padding: 20px;
+            border-radius: 6px;
+            background: #fff;
+            box-shadow: 0 0 20px 0 #095484;
+        }
+        .banner {
+            position: relative;
+            height: 210px;
+            background-image: url("/uploads/media/default/0001/01/c43630149befa5c9559813f72e99bcb6bf149e62.jpeg");
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .banner::after {
+            content: "";
+            background-color: rgba(0, 0, 0, 0.5);
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        input, select, textarea {
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        input {
+            width: calc(100% - 10px);
+            padding: 5px;
+        }
+        select {
+            width: 100%;
+            padding: 7px 0;
+            background: transparent;
+        }
+        textarea {
+            width: calc(100% - 12px);
+            padding: 5px;
+        }
+        .item:hover p, .item:hover i, .question:hover p, .question label:hover, input:hover::placeholder, a {
+            color: #095484;
+        }
+        .item input:hover, .item select:hover, .item textarea:hover {
+            border: 1px solid transparent;
+            box-shadow: 0 0 6px 0 #095484;
+            color: #095484;
+        }
+        .item {
+            position: relative;
+            margin: 10px 0;
+        }
+        input[type="date"]::-webkit-inner-spin-button {
+            display: none;
+        }
+        .item i, input[type="date"]::-webkit-calendar-picker-indicator {
+            position: absolute;
+            font-size: 20px;
+            color: #a9a9a9;
+        }
+        .item i {
+            right: 2%;
+            top: 30px;
+            z-index: 1;
+        }
+        [type="date"]::-webkit-calendar-picker-indicator {
+            right: 1%;
+            z-index: 2;
+            opacity: 0;
+            cursor: pointer;
+        }
+        input[type=radio], input[type=checkbox]  {
+            display: none;
+        }
+        label.radio, label.check {
+            position: relative;
+            display: inline-block;
+            margin: 5px 20px 15px 0;
+            cursor: pointer;
+        }
+        .question span {
+            margin-left: 30px;
+        }
+        span.required {
+            margin-left: 0;
+            color: red;
+        }
+        .checkbox-item label {
+            margin: 5px 20px 10px 0;
+        }
+        label.radio:before, label.check:before {
+            content: "";
+            position: absolute;
+            left: 0;
+        }
+        label.radio:before {
+            width: 17px;
+            height: 17px;
+            border-radius: 50%;
+            border: 2px solid #095484;
+        }
+        label.check:before {
+            top: 2px;
+            width: 16px;
+            height: 16px;
+            border-radius: 2px;
+            border: 1px solid #095484;
+        }
+        input[type=checkbox]:checked + .check:before {
+            background: #095484;
+        }
+        label.radio:after {
+            left: 5px;
+            border: 3px solid #095484;
+        }
+        label.check:after {
+            left: 4px;
+            border: 3px solid #fff;
+        }
+        label.radio:after, label.check:after {
+            content: "";
+            position: absolute;
+            top: 6px;
+            width: 8px;
+            height: 4px;
+            background: transparent;
+            border-top: none;
+            border-right: none;
+            transform: rotate(-45deg);
+            opacity: 0;
+        }
+        input[type=radio]:checked + label:after, input[type=checkbox]:checked + label:after {
+            opacity: 1;
+        }
+        .btn-block {
+            margin-top: 10px;
+            text-align: center;
+        }
+        button {
+            width: 150px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background: #095484;
+            font-size: 16px;
+            color: #fff;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0666a3;
+        }
+        @media (min-width: 568px) {
+            .city-item {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+            .city-item input {
+                width: calc(50% - 20px);
+            }
+            .city-item select {
+                width: calc(50% - 8px);
+            }
+        }
+        </style>
+    </style>
+</head>
+
+
+
+<body>
+<div style="position:sticky; top:0 ;" th:if = "${Session} != null" th:insert="inc/Sessionheader">...</div>
+<div style="position:sticky; top:0 ;" th:unless = "${Session} != null" th:insert="inc/header">...</div>
+
+
+<div class="testbox">
+    <form action="/new_application">
+        <div class="banner">
+            <h1>New Loan Application - ATZ Finance</h1>
+        </div>
+        <div class="item">
+            <p>Loan Type</p>
+            <select required>
+                <option value="">Loan Type ---- Please select one</option>
+                <option value="1">Personal Loan</option>
+                <option value="2">Business Loan</option>
+                <option value="3">Car Loan</option>
+                <option value="4">Renovation Loan</option>
+                <option value="5">Project Loan</option>
+            </select>
+        </div>
+        <div class="item">
+            <p>Date</p>
+            <input type="date" name="bdate" required/>
+            <i class="fas fa-calendar-alt"></i>
+        </div>
+        <h5>1. Customer Information:</h5>
+        <div class="item">
+            <p>Name ---- Please write full name<span class="required">*</span></p>
+            <input type="text" name="name" required/>
+        </div>
+        <div class="item">
+            <p>Customer Address<span class="required">*</span></p>
+            <input type="text" name="name" placeholder="Street address" required/>
+            <input type="text" name="name" placeholder="Street address line 2" required/>
+            <div class="city-item">
+                <input type="text" name="name" placeholder="City" required/>
+                <input type="text" name="name" placeholder="Region" required/>
+                <input type="text" name="name" placeholder="Postal / Zip code" required/>
+                <select required>
+                    <option value="">Country</option>
+                    <option value="1">Russia</option>
+                    <option value="2">Germany</option>
+                    <option value="3">France</option>
+                    <option value="4">Armenia</option>
+                    <option value="5">USA</option>
+                </select>
+            </div>
+        </div>
+        <div class="item">
+            <p>Phone<span class="required">*</span></p>
+            <input type="text" name="name" required/>
+        </div>
+
+        <div class="item">
+            <p>Email<span class="required">*</span></p>
+            <input type="text" name="name" required/>
+        </div>
+        <h5>2. Employment Information:</h5>
+        <div class="item">
+            <p>Company Name<span class="required">*</span></p>
+            <input type="text" name="name" required/>
+        </div>
+        <div class="item">
+            <h5>Employment Type</h5>
+            <select required>
+                <option value="">Employment Type ---- Please Select one</option>
+                <option value="1">Self Employment</option>
+                <option value="2">Salaried</option>
+                <option value="3">Commission Based</option>
+            </select>
+        </div>
+        <div class="item">
+            <p><Company></Company> Address<span class="required">*</span></p>
+            <input type="text" name="name" placeholder="Street address" required/>
+            <input type="text" name="name" placeholder="Street address line 2" required/>
+            <div class="city-item">
+                <input type="text" name="name" placeholder="City" required/>
+                <input type="text" name="name" placeholder="Region" required/>
+                <input type="text" name="name" placeholder="Postal / Zip code" required/>
+                <select required>
+                    <option value="">Country</option>
+                    <option value="1">Russia</option>
+                    <option value="2">Germany</option>
+                    <option value="3">France</option>
+                    <option value="4">Armenia</option>
+                    <option value="5">USA</option>
+                </select>
+            </div>
+        </div>
+        <div class="item">
+            <p>Phone<span class="required">*</span></p>
+            <input type="text" name="name" required/>
+        </div>
+
+        <div class="item">
+            <p>Email<span class="required">*</span></p>
+            <input type="text" name="name" required/>
+        </div>
+        <div class="item">
+            <p>Electronic signature<span class="required">*</span></p>
+            <textarea rows="3" required></textarea>
+        </div>
+        <div class="btn-block">
+            <button type="submit">Send Application</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>
