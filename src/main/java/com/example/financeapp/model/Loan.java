@@ -1,5 +1,9 @@
 package com.example.financeapp.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -23,12 +27,13 @@ public class Loan implements Serializable {
     @Column(name = "loan_status")
     private String loanStatus;
 
-    //User loanUser;
     // not sure how to make this association
-    // I'm thinking user would have loan arraylist attribute, so one to many association?
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "customerNum", nullable = false)
+    @JoinColumn(name = "customer_num", nullable = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JsonIgnore
+    private User user;
 
     public Long getLoanNum() {
         return loanNum;
@@ -68,6 +73,14 @@ public class Loan implements Serializable {
 
     public void setLoanStatus(String loanStatus) {
         this.loanStatus = loanStatus;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
 

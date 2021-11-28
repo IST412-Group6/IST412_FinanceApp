@@ -24,6 +24,7 @@ public class DashboardController {
     @Autowired
     private AccountService accountService;
 
+    //need to make sure that this gets associated with the correct user
     //when new application button clicked, get loan application form
     @GetMapping("/newLoan")
     public String newLoan(Model model) {
@@ -32,5 +33,7 @@ public class DashboardController {
         model.addAttribute("loan", loan);
         return "loanapplication";
     }
+
+
 }
 
