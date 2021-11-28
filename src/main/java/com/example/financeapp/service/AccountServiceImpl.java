@@ -1,6 +1,6 @@
 package com.example.financeapp.service;
 
-import com.example.financeapp.model.Account;
+import com.example.financeapp.model.BankAccount;
 import com.example.financeapp.repository.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,19 +13,19 @@ public class AccountServiceImpl implements AccountService{
     AccountRepository accountRepository;
 
     @Override
-    public List<Account> getAllAccounts() {
+    public List<BankAccount> getAllAccounts() {
         return accountRepository.findAll();
     }
 
     @Override
-    public Account getAccountById(Long accountId) {
-        Optional<Account> optional = accountRepository.findById(accountId);
-        Account account = null;
+    public BankAccount getAccountById(Long accountId) {
+        Optional<BankAccount> optional = accountRepository.findById(accountId);
+        BankAccount bankAccount = null;
         if (optional.isPresent()) {
-            account = optional.get();
+            bankAccount = optional.get();
         } else {
             throw new RuntimeException("Account not found for id : " + accountId);
         }
-        return account;
+        return bankAccount;
     }
 }

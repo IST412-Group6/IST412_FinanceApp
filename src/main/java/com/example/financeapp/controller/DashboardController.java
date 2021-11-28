@@ -36,7 +36,7 @@ public class DashboardController {
 
     //need to make sure that this gets associated with the correct user
     //when new application button clicked, get loan application form
-    @GetMapping("/newLoan")
+    @GetMapping("/loanApp")
     public String newLoan(Model model) {
         //create model attribute to bind form data
         Loan loan = new Loan();

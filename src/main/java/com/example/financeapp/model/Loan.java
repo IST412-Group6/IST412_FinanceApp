@@ -28,7 +28,7 @@ public class Loan implements Serializable {
     private String loanStatus;
 
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne()
     @JoinColumn(name = "customer_num", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonIgnore

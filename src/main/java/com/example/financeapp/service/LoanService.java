@@ -8,4 +8,6 @@ public interface LoanService {
     List<Loan> getAllLoans();
 
     Loan getLoanById(Long loanNum);
+
+    void submitLoan(Loan loan);
 }

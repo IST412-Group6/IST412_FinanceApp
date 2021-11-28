@@ -3,10 +3,12 @@ package com.example.financeapp.service;
 import com.example.financeapp.model.Loan;
 import com.example.financeapp.repository.LoanRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class LoanServiceImpl implements LoanService{
 
     @Autowired
@@ -28,6 +30,12 @@ public class LoanServiceImpl implements LoanService{
             throw new RuntimeException("Loan not found for id : " + loanNum);
         }
         return loan;
+    }
+
+    //saves loan object to database
+    @Override
+    public void submitLoan(Loan loan) {
+        this.loanRepository.save(loan);
     }
 
 }

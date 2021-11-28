@@ -73,8 +73,16 @@
 
             <tr>
                 <td>
-                    <label for="userName">Name:<br>
-                        <input type="text" id="userName" th:field="*{userName}" required>
+                    <label for="userFirstName">First Name:<br>
+                        <input type="text" id="userFirstName" th:field="*{userFirstName}" required>
+                    </label>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label for="userLastName">Last Name:<br>
+                        <input type="text" id="userLastName" th:field="*{userLastName}" required>
                     </label>
                 </td>
             </tr>
@@ -83,6 +91,7 @@
                 <td>
                     <label for = "userEmail">E-mail:<br>
                         <input type="text" id="userEmail" th:field="*{userEmail}" required>
+                        <div class="alert alert-warning" th:if="${#fields.hasErrors('userEmail')}" th:errors="*{userEmail}"></div>
                     </label>
                 </td>
             </tr>
@@ -91,6 +100,7 @@
                 <td>
                     <label for="userPhone">Phone:<br>
                         <input type="text" id="userPhone" th:field="*{userPhone}" required>
+                        <div class="alert alert-warning" th:if="${#fields.hasErrors('userPhone')}" th:errors="*{userPhone}"></div>
                     </label>
                 </td>
             </tr>

@@ -10,7 +10,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "accounts")
-public class Account implements Serializable {
+public class BankAccount implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long accountId;

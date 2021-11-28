@@ -19,7 +19,7 @@ public class HomeController {
 
     @GetMapping("/home")
     public String home(Locale locale, Model model, HttpServletRequest request) {
-        if(request.getSession() != null){
+        if(request.getSession().getAttribute("userid") != null){
             String checkSession = String.valueOf(
                     request.getSession().getAttribute("userid"));
             model.addAttribute("Session", checkSession);
@@ -47,6 +47,8 @@ public class HomeController {
         String checkSession = String.valueOf(
                 request.getSession().getAttribute("userid"));
         model.addAttribute("Session", checkSession);
+        // add additional model attributes here for dashboard template
+        //model.addAttribute()
         return "customerMain";
     }
 
