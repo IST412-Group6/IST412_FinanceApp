@@ -27,6 +27,8 @@ public class Loan implements Serializable {
     // not sure how to make this association
     // I'm thinking user would have loan arraylist attribute, so one to many association?
 
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "customerNum", nullable = false)
 
     public Long getLoanNum() {
         return loanNum;
