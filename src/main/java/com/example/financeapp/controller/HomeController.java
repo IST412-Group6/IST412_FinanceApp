@@ -34,7 +34,7 @@ public class HomeController {
     }
 
     @GetMapping("/dashboard")
-    public String dashboard(){
+    public String dashboard() {
         return "customerMain";
     }
 

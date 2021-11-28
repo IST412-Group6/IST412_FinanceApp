@@ -36,7 +36,6 @@ public class User implements Serializable {
             joinColumns = {@JoinColumn(name = "userId")},
             inverseJoinColumns = {@JoinColumn(name = "accountId")})
 
-    // user will also have loan(s), but not sure how to make this connection yet...
 
     public Set<Account> accounts = new HashSet<>();
 
