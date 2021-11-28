@@ -14,17 +14,17 @@ public class UserServiceImpl implements  UserService{
 
     //Authenticates user log in credentials (id and password)
     @Override
-    public String authenticateUser(String userID, String userPassword) {
-        String result = null;
+    public boolean authenticateUser(String userID, String userPassword) {
+        boolean result = false;
         System.out.println("HERE");
         Optional<User> user = userRepository.findByUserId(userID);
         if (user.isPresent()) {
             if (user.get().getUserPassword().equals(userPassword)) {
-                result = "o";
+                result =true;
             } else {
-                result = "x";
+                result = false;
             }
-        } else {result = "x";}
+        } else {result = false;}
             return result;
         }
 

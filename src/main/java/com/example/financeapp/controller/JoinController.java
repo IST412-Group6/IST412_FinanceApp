@@ -17,17 +17,29 @@ import javax.validation.Valid;
 @Controller
 public class JoinController {
     private static final Logger log = LoggerFactory.getLogger(JoinController.class);
+    private  UserRepository userRepository;
 
-    @Autowired
-    private UserRepository userRepository;
-    @Autowired
     private AccountRepository accountRepository;
 
-    @Autowired
     private UserService userService;
-    @Autowired
-    private AccountService accountService;
 
+    private AccountService accountService;
+    @Autowired
+    public void setUserRepository(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+    @Autowired
+    public void setAccountRepository(AccountRepository accountRepository) {
+        this.accountRepository = accountRepository;
+    }
+    @Autowired
+    public void setUserService(UserService userService) {
+        this.userService = userService;
+    }
+    @Autowired
+    public void setAccountService(AccountService accountService) {
+        this.accountService = accountService;
+    }
 
 
 // Method to get user input from the Join Form and add new user to database

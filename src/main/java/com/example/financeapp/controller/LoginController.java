@@ -13,36 +13,42 @@ import javax.servlet.http.HttpSession;
 
 @Controller
 public class LoginController {
-    @Autowired
+
     UserRepository userRepository;
-    @Autowired
+
     UserService userService;
 
+    @Autowired
+    public void setUserRepository(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+    @Autowired
+    public void setUserService(UserService userService) {
+        this.userService = userService;
+    }
 
     @PostMapping("/loginAut")
     public String loginAut(Model model, HttpServletRequest request,
                            @RequestParam(value = "userId")  String userId,
                            @RequestParam("userPassword") String userPassword){
-      String Result = null;
-      String result = null;
 
+      String landPage= null;
+      boolean LoginResult = userService.authenticateUser(userId, userPassword);
 
-      Result = userService.authenticateUser(userId, userPassword);
+      System.out.println(LoginResult);
 
-      System.out.println(Result);
-
-    if (Result =="o"){
+    if (LoginResult == true){
 
         HttpSession session = request.getSession();
         session.setAttribute("userid", userId);
         String checkSession = String.valueOf(
                 request.getSession().getAttribute("userid"));
         model.addAttribute("Session", checkSession);
-         result = "/customerMain";
-    } else if (Result =="x") {
-         result = "/login_form";
+        landPage = "/customerMain";
+    } else if (LoginResult == false) {
+        landPage = "/login_form";
     }
 
-    return result;
+    return landPage;
     }
 }
