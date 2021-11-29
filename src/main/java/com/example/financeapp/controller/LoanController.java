@@ -1,3 +1,4 @@
+/*
 package com.example.financeapp.controller;
 
 import com.example.financeapp.model.Loan;
@@ -33,3 +34,4 @@ public class LoanController {
     }
 
 }
+*/

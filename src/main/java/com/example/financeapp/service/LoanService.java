@@ -9,7 +9,7 @@ public interface LoanService {
 
     Loan getLoanById(Long loanNum);
     
-    void saveLoan(Loan loan);
-
+    /*void saveLoan(Loan loan);
+*/
     void submitLoan(Loan loan);
 }

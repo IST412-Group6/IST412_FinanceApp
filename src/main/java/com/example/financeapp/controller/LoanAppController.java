@@ -1,6 +1,7 @@
 package com.example.financeapp.controller;
 
 import com.example.financeapp.model.Loan;
+import com.example.financeapp.model.User;
 import com.example.financeapp.repository.AccountRepository;
 import com.example.financeapp.repository.LoanRepository;
 import com.example.financeapp.repository.UserRepository;
@@ -12,9 +13,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.Date;
+import java.util.Optional;
 
 @Controller
 public class LoanAppController {
@@ -57,14 +61,50 @@ public class LoanAppController {
     public void setLoanService(LoanService loanService) {
         this.loanService = loanService;
     }
+
+
+
     // Method to get user input from the Loan Application Form and add new loan to database
-    @PostMapping("/loanApp/newLoan")
-    public String submitLoan(@ModelAttribute("loan") Loan loan,      Model model, HttpServletRequest request) {
+    @PostMapping("//new_application")
+    public String submitLoan( @RequestParam (value = "loanType", required = true) String loanType,
+                              @RequestParam (value = "appDate", required = true) String appDate,
+                              @RequestParam (value = "cusID", required = true) String cusID,
+                              @RequestParam (value = "cusAddress1", required = true) String cusAddress1,
+                              @RequestParam (value = "cusAddress2", required = true) String cusAddress2,
+                              @RequestParam (value = "cusCity", required = true) String cusCity,
+                              @RequestParam (value = "cusRegion", required = true) String cusRegion,
+                              @RequestParam (value = "cusZip", required = true) String cusZip,
+                              @RequestParam (value = "cusState", required = true) String cusState,
+                              @RequestParam (value = "elecSig", required = true) String elecSig,
+                              @RequestParam (value = "cucPhone", required = true) String cucPhone,
+
+                                          @RequestParam (value = "cusEmail", required = true) String cusEmail
+
+            ,      Model model, HttpServletRequest request) {
         HttpSession session = request.getSession();
         String checkSession = String.valueOf(
                 request.getSession().getAttribute("userid"));
         model.addAttribute("Session", checkSession);
+
+
+
+        Loan loan = new Loan();
+        loan.setAppDate(appDate);
+        loan.setLoanType(loanType);
+        loan.setCusID(cusID);
+        loan.setCusAddress1(cusAddress1);
+        loan.setCusAddress2(cusAddress2);
+        loan.setCusCity(cusCity);
+        loan.setCusRegion(cusRegion);
+        loan.setCusZip(cusZip);
+        loan.setCusState(cusState);
+        loan.setElecSig(elecSig);
+        loan.setCusEmail(cusEmail);
+        loan.setCusPhone(cucPhone);
+
+
         loanService.submitLoan(loan);
-        return "redirect:/login";
+        model.addAttribute("submit", "submit");
+        return "customerMain";
     }
 }

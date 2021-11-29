@@ -60,13 +60,12 @@ public class DashboardController {
     @GetMapping("/loanApp")
     public String newLoan(Model model, HttpServletRequest request) {
         //create model attribute to bind form data
-        Loan loan = new Loan();
+
 
         HttpSession session = request.getSession();
         String checkSession = String.valueOf(
                 request.getSession().getAttribute("userid"));
         model.addAttribute("Session", checkSession);
-        model.addAttribute("loan", loan);
         return "loanapplication";
     }
 

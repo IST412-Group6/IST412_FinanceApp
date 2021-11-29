@@ -148,7 +148,15 @@
 
     </section>
 
+<input th:type="hidden" th:value="${submit}" th:id="submit" th:name="submit">
 
+<script>
+    const a ="submit";
+    if (document.getElementById("submit").value === a){
+        alert("Application Submitted!")
+        document.getElementById("submit").value = "used";
+    }
+</script>
 
 
 </body>
