@@ -44,9 +44,9 @@ public class LoginController {
         String checkSession = String.valueOf(
                 request.getSession().getAttribute("userid"));
         model.addAttribute("Session", checkSession);
-        landPage = "/customerMain";
+        landPage = "customerMain";
     } else if (LoginResult == false) {
-        landPage = "/login_form";
+        landPage = "login_form";
     }
 
     return landPage;

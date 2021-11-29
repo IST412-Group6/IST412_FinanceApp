@@ -226,6 +226,7 @@
             <h1>New Loan Application - ATZ Finance</h1>
         </div>
         <div class="item">
+            <h5>1. Loan Information</h5>
             <p>Loan Type</p>
             <select th:name="loanType" th:id="loanType" required >
                 <option value="">Loan Type ---- Please select one</option>
@@ -235,22 +236,31 @@
                 <option value="Renovation Loan">Renovation Loan</option>
                 <option value="Project Loan">Project Loan</option>
             </select>
+            <p>Loan Interest Rate</p>
+            <select required>
+                <option value="">Interest Rate ---- Please select one</option>
+                <option value="1">Fixed</option>
+                <option value="2">Variable</option>
+            </select>
         </div>
         <div class="item">
             <p>Date</p>
             <input type="text" th:name="appDate" name="appDate"  required/>
             <i class="fas fa-calendar-alt"></i>
         </div>
-        <h5>1. Customer Information:</h5>
+        <h5>2. Customer Information:</h5>
         <div class="item">
+
             <p>Customer ID<span class="required">*</span></p>
             <input type="text" th:name="cusID" th:id="cusID" th:value="${Session}"  th:placeholder="${Session}" required/>
+
         </div>
         <div class="item">
             <p>Customer Address<span class="required">*</span></p>
             <input type="text"  th:id="cusAddress1" th:name="cusAddress1" placeholder="Street address" required/>
             <input type="text"  th:id="cusAddress2" th:name="cusAddress2" placeholder="Street address line 2" required/>
             <div class="city-item">
+
                 <input type="text" th:id="cusCity" th:name="cusCity" placeholder="City" required/>
                 <input type="text"th:id="cusRegion" th:name="cusRegion" placeholder="Region" required/>
                 <input type="text" th:id="cusZip" th:name="cusZip" placeholder="Postal / Zip code" required/>
@@ -266,61 +276,79 @@
         </div>
         <div class="item">
             <p>Phone<span class="required">*</span></p>
-            <input type="text" th:id="cusPhone" th:name="cusPhone" required/>
+            <input type="text" th:id="cusPhone" th:name="cusPhone" placeholder="+1 123-456-7891" required/>
         </div>
 
         <div class="item">
             <p>Email<span class="required">*</span></p>
             <input type="text" th:id="cusEmail" th:name="cusEmail" required/>
-
-<!--            &#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;
-        <h5>2. Employment Information:</h5>
-        <div class="item">
-            <p>Company Name<span class="required">*</span></p>
-            <input type="text" name="name" required/>
-        </div>
-        <div class="item">
-            <h5>Employment Type</h5>
-            <select required>
-                <option value="">Employment Type &#45;&#45;&#45;&#45; Please Select one</option>
-                <option value="1">Self Employment</option>
-                <option value="2">Salaried</option>
-                <option value="3">Commission Based</option>
-            </select>
-        </div>
-        <div class="item">
-            <p><Company></Company> Address<span class="required">*</span></p>
-            <input type="text" name="name" placeholder="Street address" required/>
-            <input type="text" name="name" placeholder="Street address line 2" required/>
-            <div class="city-item">
-                <input type="text" name="name" placeholder="City" required/>
-                <input type="text" name="name" placeholder="Region" required/>
-                <input type="text" name="name" placeholder="Postal / Zip code" required/>
-                <select required>
-                    <option value="">Country</option>
-                    <option value="1">Russia</option>
-                    <option value="2">Germany</option>
-                    <option value="3">France</option>
-                    <option value="4">Armenia</option>
-                    <option value="5">USA</option>
-                </select>
-            </div>
-        </div>
-        <div class="item">
-            <p>Phone<span class="required">*</span></p>
-            <input type="text" name="name" required/>
         </div>
 
-        <div class="item">
-            <p>Email<span class="required">*</span></p>
-            <input type="text" name="name" required/>
-        </div>-->
+        <!--            &#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;
+                <h5>2. Employment Information:</h5>
+        =======
+                    <input type="text" name="name" placeholder="example@email.com" required/>
+                </div>
+                <h5>3. Employment Information:</h5>
+        >>>>>>> 2a4b015af32478d63f51d1ecb137a495b74ceabc
+                <div class="item">
+                    <p>Company Name<span class="required">*</span></p>
+                    <input type="text" name="name" placeholder="Company" required/>
+                </div>
+                <div class="item">
+                    <h5>Employment Type</h5>
+                    <select required>
+                        <option value="">Employment Type &#45;&#45;&#45;&#45; Please Select one</option>
+                        <option value="1">Self Employment</option>
+                        <option value="2">Salaried</option>
+                        <option value="3">Commission Based</option>
+                        <option value="4">Unemployed</option>
+                    </select>
+                </div>
+                <div class="item">
+                    <p>Salary Range</p>
+                    <select required>
+                        <option value="">Salary Range ---- Please Select one</option>
+                        <option value="1">$0 - $20,000</option>
+                        <option value="2">$21,000 - $50,000</option>
+                        <option value="3">$51,000 - $100,000</option>
+                        <option value="4">$100,000+</option>
+                    </select>
+                </div>
+                <div class="item">
+                    <p><Company></Company> Address<span class="required">*</span></p>
+                    <input type="text" name="name" placeholder="Street address" required/>
+                    <input type="text" name="name" placeholder="Street address line 2" required/>
+                    <div class="city-item">
+                        <input type="text" name="name" placeholder="City" required/>
+                        <input type="text" name="name" placeholder="Region" required/>
+                        <input type="text" name="name" placeholder="Postal / Zip code" required/>
+                        <select required>
+                            <option value="">Country</option>
+                            <option value="1">Russia</option>
+                            <option value="2">Germany</option>
+                            <option value="3">France</option>
+                            <option value="4">Armenia</option>
+                            <option value="5">USA</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="item">
+                    <p>Phone<span class="required">*</span></p>
+                    <input type="text" name="name" placeholder="+1 123-456-7891" required/>
+                </div>
+
+                <div class="item">
+                    <p>Email<span class="required">*</span></p>
+        <<<<<<< HEAD
+                    <input type="text" name="name" required/>
+                </div>-->
         <div class="item">
             <p>Electronic signature<span class="required">*</span></p>
             <textarea th:name="elecSig" th:id="elecSig" rows="3" required></textarea>
         </div>
         <div class="btn-block">
-            <button type="submit">Send Application</button>
+            <button type="submit">Submit Application</button>
         </div>
     </form>
 </div>

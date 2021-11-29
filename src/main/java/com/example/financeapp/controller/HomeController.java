@@ -48,7 +48,7 @@ public class HomeController {
                 request.getSession().getAttribute("userid"));
         model.addAttribute("Session", checkSession);
         // add additional model attributes here for dashboard template
-        //model.addAttribute()
+        //model.addAttribute();
         return "customerMain";
     }
 
