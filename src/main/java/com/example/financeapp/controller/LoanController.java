@@ -14,6 +14,7 @@ public class LoanController {
 
     @RequestMapping(value = "/LoanForm")
     public String LoanForm(Model model) {
+        model.addAttribute("listCourses", loanService.getAllLoans());
         return "LoanForm";
     }
 
