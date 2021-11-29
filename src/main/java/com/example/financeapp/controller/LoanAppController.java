@@ -77,7 +77,7 @@ public class LoanAppController {
                               @RequestParam (value = "cusZip", required = true) String cusZip,
                               @RequestParam (value = "cusState", required = true) String cusState,
                               @RequestParam (value = "elecSig", required = true) String elecSig,
-                              @RequestParam (value = "cucPhone", required = true) String cucPhone,
+                              @RequestParam (value = "cusPhone", required = true) String cucPhone,
 
                                           @RequestParam (value = "cusEmail", required = true) String cusEmail
 

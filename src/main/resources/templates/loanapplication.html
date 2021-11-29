@@ -236,12 +236,7 @@
                 <option value="Renovation Loan">Renovation Loan</option>
                 <option value="Project Loan">Project Loan</option>
             </select>
-            <p>Loan Interest Rate</p>
-            <select required>
-                <option value="">Interest Rate ---- Please select one</option>
-                <option value="1">Fixed</option>
-                <option value="2">Variable</option>
-            </select>
+
         </div>
         <div class="item">
             <p>Date</p>
@@ -250,7 +245,6 @@
         </div>
         <h5>2. Customer Information:</h5>
         <div class="item">
-
             <p>Customer ID<span class="required">*</span></p>
             <input type="text" th:name="cusID" th:id="cusID" th:value="${Session}"  th:placeholder="${Session}" required/>
 
