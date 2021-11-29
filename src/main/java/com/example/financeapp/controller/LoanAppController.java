@@ -59,7 +59,7 @@ public class LoanAppController {
     }
     // Method to get user input from the Loan Application Form and add new loan to database
     @PostMapping("/loanApp/newLoan")
-    public String submitLoan(@ModelAttribute("loan") Loan loan,      Model model, HttpServletRequest request) {
+    public String submitLoan(@ModelAttribute("loan") Loan loan, Model model, HttpServletRequest request) {
         HttpSession session = request.getSession();
         String checkSession = String.valueOf(
                 request.getSession().getAttribute("userid"));

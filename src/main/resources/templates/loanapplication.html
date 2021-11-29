@@ -226,14 +226,37 @@
             <h1>New Loan Application - ATZ Finance</h1>
         </div>
         <div class="item">
+            <h5>1. Loan Information</h5>
             <p>Loan Type</p>
             <select required>
                 <option value="">Loan Type ---- Please select one</option>
                 <option value="1">Personal Loan</option>
                 <option value="2">Business Loan</option>
                 <option value="3">Car Loan</option>
-                <option value="4">Renovation Loan</option>
-                <option value="5">Project Loan</option>
+                <option value="4">School Loan</option>
+                <option value="5">Renovation Loan</option>
+                <option value="6">Project Loan</option>
+            </select>
+            <p>Loan Interest Rate</p>
+            <select required>
+                <option value="">Interest Rate ---- Please select one</option>
+                <option value="1">Fixed</option>
+                <option value="2">Variable</option>
+            </select>
+        </div>
+        <div class="item">
+            <p>Amount Needed</p>
+            <input type="text" name="name" placeholder="Enter Amount Needed" required/>
+        </div>
+        <div class="item">
+            <p>Duration</p>
+            <select>
+                <option value="">Duration ---- Please select one</option>
+                <option value="1">1 year</option>
+                <option value="2">2 years</option>
+                <option value="3">3 years</option>
+                <option value="4">4 years</option>
+                <option value="5">5+ years</option>
             </select>
         </div>
         <div class="item">
@@ -241,10 +264,10 @@
             <input type="date" name="bdate" required/>
             <i class="fas fa-calendar-alt"></i>
         </div>
-        <h5>1. Customer Information:</h5>
+        <h5>2. Customer Information:</h5>
         <div class="item">
-            <p>Name ---- Please write full name<span class="required">*</span></p>
-            <input type="text" name="name" required/>
+            <p>Name<span class="required">*</span></p>
+            <input type="text" name="name" placeholder="Name ---- Please write full name" required/>
         </div>
         <div class="item">
             <p>Customer Address<span class="required">*</span></p>
@@ -252,7 +275,7 @@
             <input type="text" name="name" placeholder="Street address line 2" required/>
             <div class="city-item">
                 <input type="text" name="name" placeholder="City" required/>
-                <input type="text" name="name" placeholder="Region" required/>
+                <input type="text" name="name" placeholder="Region / State" required/>
                 <input type="text" name="name" placeholder="Postal / Zip code" required/>
                 <select required>
                     <option value="">Country</option>
@@ -266,17 +289,17 @@
         </div>
         <div class="item">
             <p>Phone<span class="required">*</span></p>
-            <input type="text" name="name" required/>
+            <input type="text" name="name" placeholder="+1 123-456-7891" required/>
         </div>
 
         <div class="item">
             <p>Email<span class="required">*</span></p>
-            <input type="text" name="name" required/>
+            <input type="text" name="name" placeholder="example@email.com" required/>
         </div>
-        <h5>2. Employment Information:</h5>
+        <h5>3. Employment Information:</h5>
         <div class="item">
             <p>Company Name<span class="required">*</span></p>
-            <input type="text" name="name" required/>
+            <input type="text" name="name" placeholder="Company" required/>
         </div>
         <div class="item">
             <h5>Employment Type</h5>
@@ -285,6 +308,17 @@
                 <option value="1">Self Employment</option>
                 <option value="2">Salaried</option>
                 <option value="3">Commission Based</option>
+                <option value="4">Unemployed</option>
+            </select>
+        </div>
+        <div class="item">
+            <p>Salary Range</p>
+            <select required>
+                <option value="">Salary Range ---- Please Select one</option>
+                <option value="1">$0 - $20,000</option>
+                <option value="2">$21,000 - $50,000</option>
+                <option value="3">$51,000 - $100,000</option>
+                <option value="4">$100,000+</option>
             </select>
         </div>
         <div class="item">
@@ -307,19 +341,19 @@
         </div>
         <div class="item">
             <p>Phone<span class="required">*</span></p>
-            <input type="text" name="name" required/>
+            <input type="text" name="name" placeholder="+1 123-456-7891" required/>
         </div>
 
         <div class="item">
             <p>Email<span class="required">*</span></p>
-            <input type="text" name="name" required/>
+            <input type="text" name="name" placeholder="example@email.com" required/>
         </div>
         <div class="item">
             <p>Electronic signature<span class="required">*</span></p>
             <textarea rows="3" required></textarea>
         </div>
         <div class="btn-block">
-            <button type="submit">Send Application</button>
+            <button type="submit">Submit Application</button>
         </div>
     </form>
 </div>

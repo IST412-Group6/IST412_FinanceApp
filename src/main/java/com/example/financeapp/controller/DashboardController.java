@@ -14,16 +14,10 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class DashboardController {
     private  UserRepository userRepository;
-
     private AccountRepository accountRepository;
-
     private LoanRepository loanRepository;
-
     private UserService userService;
-
     private AccountService accountService;
-
-
     @Autowired
     public void setUserRepository(UserRepository userRepository) {
         this.userRepository = userRepository;
@@ -44,18 +38,10 @@ public class DashboardController {
     public void setAccountService(AccountService accountService) {
         this.accountService = accountService;
     }
-    // @Autowired
-  //  private LoanService loanService;
-
-    //these values will come from loan class
-    //currApp = loanStatus
-    //currAppDate =
-    //currAppType = loanType
-    //currAppDuration = loanDuration
-    //loan amount
+    @Autowired
+    private LoanService loanService;
 
 
-    //need to make sure that this gets associated with the correct user
     //when new application button clicked, get loan application form
     @GetMapping("/loanApp")
     public String newLoan(Model model, HttpServletRequest request) {
