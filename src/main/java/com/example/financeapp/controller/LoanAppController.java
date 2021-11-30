@@ -1,7 +1,6 @@
 package com.example.financeapp.controller;
 
 import com.example.financeapp.model.Loan;
-import com.example.financeapp.model.User;
 import com.example.financeapp.repository.AccountRepository;
 import com.example.financeapp.repository.LoanRepository;
 import com.example.financeapp.repository.UserRepository;
@@ -11,14 +10,11 @@ import com.example.financeapp.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.Date;
-import java.util.Optional;
 
 @Controller
 public class LoanAppController {

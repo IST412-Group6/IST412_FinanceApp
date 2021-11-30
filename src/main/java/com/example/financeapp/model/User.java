@@ -9,22 +9,19 @@ import java.util.Set;
 
 @Entity
 @Table(name = "user")
-public class User implements Serializable {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long customerNum;
+@AttributeOverrides({
+        @AttributeOverride(name = "userNum", column = @Column(name = "customer_num")),
+        @AttributeOverride(name = "userId", column = @Column(name = "user_id")),
+        @AttributeOverride(name = "userPassword", column = @Column(name = "user_password"))
+})
+public class User extends UserSuper implements Serializable {
 
-    @Column(name = "user_id")
-    private String userId;
 
     @Column(name = "user_first_name")
     private String userFirstName;
 
     @Column(name = "user_last_name")
     private String userLastName;
-
-    @Column(name = "user_password")
-    private String userPassword;
 
     @Column(name = "user_email")
     @Email(message="Please enter a valid email address")
@@ -46,21 +43,6 @@ public class User implements Serializable {
 
     public Set<BankAccount> bankAccounts = new HashSet<>();
 
-    public Long getCustomerNum() {
-        return customerNum;
-    }
-
-    public void setCustomerNum(Long customerNum) {
-        this.customerNum = customerNum;
-    }
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
 
     public String getUserFirstName() { return userFirstName; }
 
@@ -69,10 +51,6 @@ public class User implements Serializable {
     public String getUserLastName() { return userLastName; }
 
     public void setUserLastName(String username) { this.userLastName = username; }
-
-    public String getUserPassword() { return userPassword; }
-
-    public void setUserPassword(String password) { this.userPassword = password; }
 
     public String getUserEmail() { return userEmail; }
 

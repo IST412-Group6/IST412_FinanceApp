@@ -1,6 +1,7 @@
 package com.example.financeapp.service;
 
 import com.example.financeapp.model.User;
+import com.example.financeapp.model.UserSuper;
 import com.example.financeapp.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -8,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
-public class UserServiceImpl implements  UserService{
+public class UserServiceImpl implements UserService{
     @Autowired
     private UserRepository userRepository;
 
@@ -52,8 +53,8 @@ public class UserServiceImpl implements  UserService{
         return user;
     }
 
-    //Saves User object to Database
     @Override
+    //Saves User object to database
     public void saveUser(User user) {
         this.userRepository.save(user);
     }
