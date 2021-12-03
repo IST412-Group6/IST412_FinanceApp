@@ -1,6 +1,7 @@
 package com.example.financeapp.controller;
 
 import com.example.financeapp.repository.UserRepository;
+import com.example.financeapp.service.EmployeeService;
 import com.example.financeapp.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,6 +19,8 @@ public class LoginController {
 
     UserService userService;
 
+    EmployeeService empService;
+
     @Autowired
     public void setUserRepository(UserRepository userRepository) {
         this.userRepository = userRepository;
@@ -26,6 +29,8 @@ public class LoginController {
     public void setUserService(UserService userService) {
         this.userService = userService;
     }
+    @Autowired
+    public void setEmpService(EmployeeService empService) { this.empService = empService; }
 
     @PostMapping("/loginAut")
     public String loginAut(Model model, HttpServletRequest request,
@@ -34,7 +39,9 @@ public class LoginController {
 
       String landPage= null;
       boolean LoginResult = userService.authenticateUser(userId, userPassword);
-
+      if (LoginResult == false) {
+          LoginResult = empService.authenticateEmp(userId, userPassword);
+        }
       System.out.println(LoginResult);
 
     if (LoginResult == true){
