@@ -55,6 +55,24 @@ public class DashboardController {
         return "loanapplication";
     }
 
+    @GetMapping("/dashboard")
+    public String dashboard(Model model, HttpServletRequest request)
+    {
+        HttpSession session = request.getSession();
+        String checkSession = String.valueOf(
+                request.getSession().getAttribute("userid"));
+        model.addAttribute("Session", checkSession);
+        //add additional model attributes here for dashboard template
+        model.addAttribute("bankAccount", "No accounts linked");
+
+        model.addAttribute("curAppStatus", "Loan Application Status");
+        model.addAttribute("curAppDate", "Application submission date");
+        model.addAttribute("curAppType", "Loan type");
+        model.addAttribute("curAppDuration", "Loan duration");
+
+        model.addAttribute("documents", "No documents uploaded");
+        return "customerMain";
+    }
 
 }
 

@@ -43,7 +43,7 @@
                 <div class="card border-info shadow text-info p-3 my-card" ><span class="fa fa-address-card-o" aria-hidden="true"></span></div>
                 <div class="text-info text-center mt-3"><h4>My Info</h4></div>
                 <div class="text-info text-center mt-2"><h4 style="font-size: small;text-align: left">User ID: <span th:text="${Session}" th:remove="tag"/> </h4></div>
-                <div class="text-info text-center mt-2"><h4 style="font-size: small;text-align: left">Connected Bank:<span th:text="${userId}" th:remove="tag"/> </h4></div>
+                <div class="text-info text-center mt-2"><h4 style="font-size: small;text-align: left">Connected Bank: <span th:text="${bankAccount}" th:remove="tag"/> </h4></div>
 
             </div>
         </div>
@@ -53,7 +53,7 @@
             <div class="card border-success mx-sm-1 p-3" style="height: 250px">
                 <div class="card border-success shadow text-success p-3 my-card"><span class="fa fa-eye" aria-hidden="true"></span></div>
                 <div class="text-success text-center mt-3"><h4>Application In Progress</h4></div>
-                <div class="text-success text-center mt-2"><h4 style="font-size: small;text-align: left">Application Status:<span th:text="${curApp}" th:remove="tag"/> </h4></div>
+                <div class="text-success text-center mt-2"><h4 style="font-size: small;text-align: left">Application Status: <span th:text="${curAppStatus}" th:remove="tag"/> </h4></div>
             </div>
         </div>
 
@@ -61,9 +61,9 @@
             <div class="card border-danger mx-sm-1 p-3" style="height: 250px">
                 <div class="card border-danger shadow text-danger p-3 my-card" ><span class="fa fa-tags" aria-hidden="true"></span></div>
                 <div class="text-danger text-center mt-3"><h4>Application In Progress Details</h4></div>
-                <div class="text-danger text-center mt-2"><h4 style="font-size: small;text-align: left">Application Submitted:<span th:text="${curAppDate}" th:remove="tag"/> </h4></div>
-                <div class="text-danger text-center mt-2"><h4 style="font-size: small;text-align: left">Loan Type:<span th:text="${curAppType}" th:remove="tag"/> </h4></div>
-                <div class="text-danger text-center mt-2"><h4 style="font-size: small;text-align: left">Loan Duration:<span th:text="${curAppDuration}" th:remove="tag"/> </h4></div>
+                <div class="text-danger text-center mt-2"><h4 style="font-size: small;text-align: left">Application Submitted: <span th:text="${curAppDate}" th:remove="tag"/> </h4></div>
+                <div class="text-danger text-center mt-2"><h4 style="font-size: small;text-align: left">Loan Type: <span th:text="${curAppType}" th:remove="tag"/> </h4></div>
+                <div class="text-danger text-center mt-2"><h4 style="font-size: small;text-align: left">Loan Duration: <span th:text="${curAppDuration}" th:remove="tag"/> </h4></div>
             </div>
         </div>
 
@@ -71,7 +71,7 @@
             <div class="card border-warning mx-sm-1 p-3" style="height: 250px">
                 <div class="card border-warning shadow text-warning p-3 my-card" ><span class="fa fa-inbox" aria-hidden="true"></span></div>
                 <div class="text-warning text-center mt-3"><h4>Documents</h4></div>
-                <div class="text-warning text-center mt-2"><h4 style="font-size: small;text-align: left">Uploaded Documents:<span th:text="${userId}" th:remove="tag"/> </h4></div>
+                <div class="text-warning text-center mt-2"><h4 style="font-size: small;text-align: left">Uploaded Documents: <span th:text="${documents}" th:remove="tag"/> </h4></div>
             </div>
         </div>
 

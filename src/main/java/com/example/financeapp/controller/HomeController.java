@@ -40,17 +40,7 @@ public class HomeController {
         return "login_form";
     }
 
-    @GetMapping("/dashboard")
-    public String dashboard(Model model, HttpServletRequest request)
-    {
-        HttpSession session = request.getSession();
-        String checkSession = String.valueOf(
-                request.getSession().getAttribute("userid"));
-        model.addAttribute("Session", checkSession);
-        // add additional model attributes here for dashboard template
-        //model.addAttribute();
-        return "customerMain";
-    }
+
 
 }
 
