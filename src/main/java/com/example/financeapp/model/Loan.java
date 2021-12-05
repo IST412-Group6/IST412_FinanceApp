@@ -1,6 +1,7 @@
 package com.example.financeapp.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
@@ -49,11 +50,10 @@ public class Loan implements Serializable {
 
     @Column(name = "cusEmail")
     private String cusEmail;
-
-
     @Column(name = "elecSig")
     private String elecSig;
-
+    @Column(name = "status")
+   private String status;
 
 
 /*
@@ -168,6 +168,13 @@ public class Loan implements Serializable {
         this.elecSig = elecSig;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 /*    public User getUser() {
         return user;
     }

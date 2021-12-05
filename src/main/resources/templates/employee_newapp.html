@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+
+    <!--
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+
+
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <title>Title</title>
+</head>
+<body>
+<body>
+<div style="position:sticky; top:0 ;" th:if = "${Session} != null" th:insert="inc/EmpHeader">...</div>
+<div style="position:sticky; top:0 ;" th:unless = "${Session} != null" th:insert="inc/header">...</div>
+
+
+
+
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6 text-center mb-5">
+                <h2 class="heading-section">New Applications</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="table-wrap">
+                    <table class="table">
+                        <thead class="thead-primary">
+                        <tr>
+                            <th>Application Number</th>
+                            <th>Applied Date</th>
+                            <th>Customer ID</th>
+                            <th>Loan type</th>
+                            <th>status</th>
+                            <th>Register</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th scope="row" class="scope" >.com</th>
+                            <td>1 Year</td>
+                            <td>$70.00</td>
+                            <td>$5.00</td>
+                            <td>$5.00</td>
+                            <td><a href="#" class="btn btn-primary">Sign Up</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="scope" >.net</th>
+                            <td>1 Year</td>
+                            <td>$75.00</td>
+                            <td>$5.00</td>
+                            <td>$5.00</td>
+                            <td><a href="#" class="btn btn-primary">Sign Up</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="scope" >.org</th>
+                            <td>1 Year</td>
+                            <td>$65.00</td>
+                            <td>$5.00</td>
+                            <td>$5.00</td>
+                            <td><a href="#" class="btn btn-primary">Sign Up</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="scope" >.biz</th>
+                            <td>1 Year</td>
+                            <td>$60.00</td>
+                            <td>$5.00</td>
+                            <td>$5.00</td>
+                            <td><a href="#" class="btn btn-primary">Sign Up</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="scope" >.info</th>
+                            <td>1 Year</td>
+                            <td>$50.00</td>
+                            <td>$5.00</td>
+                            <td>$5.00</td>
+                            <td><a href="#" class="btn btn-primary">Sign Up</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="scope border-bottom-0">.me</th>
+                            <td class="border-bottom-0">1 Year</td>
+                            <td class="border-bottom-0">$45.00</td>
+                            <td class="border-bottom-0">$5.00</td>
+                            <td class="border-bottom-0">$5.00</td>
+                            <td class="border-bottom-0"><a href="#" class="btn btn-primary">Sign Up</a></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

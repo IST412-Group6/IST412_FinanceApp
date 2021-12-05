@@ -75,7 +75,8 @@ public class LoanAppController {
                               @RequestParam (value = "elecSig", required = true) String elecSig,
                               @RequestParam (value = "cusPhone", required = true) String cucPhone,
 
-                                          @RequestParam (value = "cusEmail", required = true) String cusEmail
+                              @RequestParam (value = "cusEmail", required = true) String cusEmail,
+                              @RequestParam (value = "status", required = true) String status
 
             ,      Model model, HttpServletRequest request) {
 
@@ -99,7 +100,7 @@ public class LoanAppController {
         loan.setElecSig(elecSig);
         loan.setCusEmail(cusEmail);
         loan.setCusPhone(cucPhone);
-
+        loan.setStatus(status);
 
         loanService.submitLoan(loan);
         model.addAttribute("submit", "submit");

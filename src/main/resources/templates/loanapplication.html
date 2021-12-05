@@ -341,6 +341,7 @@
             <p>Electronic signature<span class="required">*</span></p>
             <textarea th:name="elecSig" th:id="elecSig" rows="3" required></textarea>
         </div>
+        <input th:type="hidden" th:name="status" th:id="status" th:value="'Pending'">
         <div class="btn-block">
             <button type="submit">Submit Application</button>
         </div>

@@ -41,10 +41,18 @@ public class LoginController {
       boolean LoginResult = userService.authenticateUser(userId, userPassword);
       if (LoginResult == false) {
           LoginResult = empService.authenticateEmp(userId, userPassword);
+          if(LoginResult == true) {
+              HttpSession session = request.getSession();
+              session.setAttribute("userid", userId);
+              String checkSession = String.valueOf(
+                      request.getSession().getAttribute("userid"));
+              model.addAttribute("Session", checkSession);
+              landPage = "employee_main";
+          }
         }
       System.out.println(LoginResult);
 
-    if (LoginResult == true){
+    if (LoginResult == true & landPage == null){
 
         HttpSession session = request.getSession();
         session.setAttribute("userid", userId);
