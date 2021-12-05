@@ -66,9 +66,12 @@ public class DashboardController {
         model.addAttribute("bankAccount", "No accounts linked");
 
         model.addAttribute("curAppStatus", "Loan Application Status");
-        model.addAttribute("curAppDate", "Application submission date");
-        model.addAttribute("curAppType", "Loan type");
-        model.addAttribute("curAppDuration", "Loan duration");
+
+        model.addAttribute("listLoans", loanService.getAllLoansByUser(checkSession));
+
+        //model.addAttribute("curAppDate", "Application submission date");
+        //model.addAttribute("curAppType", "Loan type");
+        //model.addAttribute("curAppDuration", "Loan duration");
 
         model.addAttribute("documents", "No documents uploaded");
         return "customerMain";

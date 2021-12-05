@@ -1,7 +1,7 @@
 package com.example.financeapp.service;
 
-import com.example.financeapp.model.Loan;
-import com.example.financeapp.repository.LoanRepository;
+import com.example.financeapp.model.*;
+import com.example.financeapp.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -18,9 +18,16 @@ public class LoanServiceImpl implements LoanService{
     @Autowired
     LoanRepository loanRepository;
 
+
     @Override
     public List<Loan> getAllLoans() {
         return loanRepository.findAll();
+    }
+
+    @Override
+    public List<Loan> getAllLoansByUser(String userId) {
+        return loanRepository.findByUserId(userId);
+
     }
 
     @Override
@@ -48,6 +55,7 @@ public class LoanServiceImpl implements LoanService{
                 Sort.by(sortField).descending();
 
         Pageable pageable = PageRequest.of( pageNo - 1, pageSize, sort);
+
         return this.loanRepository.findAll(pageable);
     }
 

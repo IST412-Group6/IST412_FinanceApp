@@ -58,12 +58,25 @@
         </div>
 
         <div class="col-md-3">
-            <div class="card border-danger mx-sm-1 p-3" style="height: 250px">
-                <div class="card border-danger shadow text-danger p-3 my-card" ><span class="fa fa-tags" aria-hidden="true"></span></div>
-                <div class="text-danger text-center mt-3"><h4>Application In Progress Details</h4></div>
-                <div class="text-danger text-center mt-2"><h4 style="font-size: small;text-align: left">Application Submitted: <span th:text="${curAppDate}" th:remove="tag"/> </h4></div>
-                <div class="text-danger text-center mt-2"><h4 style="font-size: small;text-align: left">Loan Type: <span th:text="${curAppType}" th:remove="tag"/> </h4></div>
-                <div class="text-danger text-center mt-2"><h4 style="font-size: small;text-align: left">Loan Duration: <span th:text="${curAppDuration}" th:remove="tag"/> </h4></div>
+            <div class="text-danger text-center mt-3"><h4>Submitted Applications</h4></div>
+            <table border="1" class="table table-hover table-condensed table-responsive-md">
+                <thread>
+                    <tr>
+                        <th>Application Type</th>
+                        <th>Application Status</th>
+                        <th>Date Submitted</th>
+                    </tr>
+                </thread>
+                <tbody>
+                <tr>
+                <tr th:each="loan : ${listLoans}">
+                    <td th:text="${loan.loanType}"></td>
+                    <td th:text="${loan.status}"</td>
+                    <td th:text="${loan.appDate}"></td>
+                </tr>
+                </tr>
+                </tbody>
+            </table>
             </div>
         </div>
 
