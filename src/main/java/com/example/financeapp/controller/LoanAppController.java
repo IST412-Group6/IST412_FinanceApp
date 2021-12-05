@@ -104,6 +104,6 @@ public class LoanAppController {
 
         loanService.submitLoan(loan);
         model.addAttribute("submit", "submit");
-        return "customerMain";
+        return "redirect:/dashboard";
     }
 }
