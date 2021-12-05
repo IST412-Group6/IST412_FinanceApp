@@ -54,7 +54,14 @@
                                 <p style="font-size: small">View new application that is waiting for the screening</p>
                             </div>
                             <div class="col-md-4" style="text-align: center;padding-top: 20px">
-                                <button type="button" class="btn btn-outline-success btn-lg btn-block"><a th:href="@{/loanApp}">New Applications</a></button>
+                                <form name="frm" th:action="@{/newapplist}" th:method="POST">
+                                    <input th:type="hidden" th:id="pageNo" th:name="pageNo" th:value="1">
+                                    <input th:type="hidden" th:id="sortField" th:name="sortField" th:value="'appDate'">
+                                    <input th:type="hidden" th:id="sortDir" th:name="sortDir" th:value="'DESC'">
+
+                                </form>
+
+                                <button type="button" class="btn btn-outline-success btn-lg btn-block"><a href="#" onClick="javascript:document.frm.submit();">New Applications</a></button>
                             </div>
                         </div>
                     </div>

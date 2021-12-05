@@ -1,6 +1,7 @@
 package com.example.financeapp.service;
 
 import com.example.financeapp.model.Loan;
+import org.springframework.data.domain.Page;
 
 import java.util.List;
 
@@ -10,4 +11,8 @@ public interface LoanService {
     Loan getLoanById(Long loanNum);
 
     void submitLoan(Loan loan);
+
+
+    Page<Loan> findPaginated(int pageNo, int pageSize, String sortField, String sortDirection);
+
 }

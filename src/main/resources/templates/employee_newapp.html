@@ -15,7 +15,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <title>Title</title>
+    <title>ATZ Finance - Application Screen</title>
 </head>
 <body>
 <body>
@@ -43,58 +43,17 @@
                             <th>Applied Date</th>
                             <th>Customer ID</th>
                             <th>Loan type</th>
-                            <th>status</th>
-                            <th>Register</th>
+                            <th>View Detail</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <th scope="row" class="scope" >.com</th>
-                            <td>1 Year</td>
-                            <td>$70.00</td>
-                            <td>$5.00</td>
-                            <td>$5.00</td>
-                            <td><a href="#" class="btn btn-primary">Sign Up</a></td>
-                        </tr>
-                        <tr>
-                            <th scope="row" class="scope" >.net</th>
-                            <td>1 Year</td>
-                            <td>$75.00</td>
-                            <td>$5.00</td>
-                            <td>$5.00</td>
-                            <td><a href="#" class="btn btn-primary">Sign Up</a></td>
-                        </tr>
-                        <tr>
-                            <th scope="row" class="scope" >.org</th>
-                            <td>1 Year</td>
-                            <td>$65.00</td>
-                            <td>$5.00</td>
-                            <td>$5.00</td>
-                            <td><a href="#" class="btn btn-primary">Sign Up</a></td>
-                        </tr>
-                        <tr>
-                            <th scope="row" class="scope" >.biz</th>
-                            <td>1 Year</td>
-                            <td>$60.00</td>
-                            <td>$5.00</td>
-                            <td>$5.00</td>
-                            <td><a href="#" class="btn btn-primary">Sign Up</a></td>
-                        </tr>
-                        <tr>
-                            <th scope="row" class="scope" >.info</th>
-                            <td>1 Year</td>
-                            <td>$50.00</td>
-                            <td>$5.00</td>
-                            <td>$5.00</td>
-                            <td><a href="#" class="btn btn-primary">Sign Up</a></td>
-                        </tr>
-                        <tr>
-                            <th scope="row" class="scope border-bottom-0">.me</th>
-                            <td class="border-bottom-0">1 Year</td>
-                            <td class="border-bottom-0">$45.00</td>
-                            <td class="border-bottom-0">$5.00</td>
-                            <td class="border-bottom-0">$5.00</td>
-                            <td class="border-bottom-0"><a href="#" class="btn btn-primary">Sign Up</a></td>
+                        <tr th:each="loan : ${LoanList}">
+                            <td th:text="${loan.loanNum}">1</td>
+                            <td th:text="${loan.appDate}">2</td>
+                            <td th:text="${loan.cusID}">3</td>
+                            <td th:text="${loan.loanType}">4</td>
+                            <td> <a th:href="@{#}" class="btn "><span class="fa fa-list-ul" aria-hidden="true"></span>&nbsp;View</a>
+                            </td>
                         </tr>
                         </tbody>
                     </table>

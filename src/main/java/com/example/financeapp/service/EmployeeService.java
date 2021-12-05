@@ -9,4 +9,7 @@ public interface EmployeeService {
     Employee getUserByEmpNum(Long empNum);
 
     Employee getEmpByEmpId(String empId);
+
+
+
 }
