@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Locale;
 
@@ -22,14 +23,22 @@ public class employeeController{
     private LoanService loanService;
 
 
+        @GetMapping("/enmployee_main")
+        public String empMain(Model model, HttpServletRequest request){
 
+
+            if (request.getSession().getAttribute("userid") != null) {
+                String checkSession = String.valueOf(
+                        request.getSession().getAttribute("userid"));
+                model.addAttribute("Session", checkSession);
+            }
+            return "employee_main";
+        }
         @PostMapping("/newapplist")
         public String home( Model model, HttpServletRequest request,
                            @RequestParam (value = "pageNo") int pageNo,
                            @RequestParam(value ="sortField") String sortField,
                            @RequestParam(value ="sortDir") String sortDir) {
-
-
 
             if (request.getSession().getAttribute("userid") != null) {
                 String checkSession = String.valueOf(
