@@ -23,7 +23,7 @@ public class employeeController{
     private LoanService loanService;
 
 
-        @GetMapping("/enmployee_main")
+        @GetMapping("/employee_main")
         public String empMain(Model model, HttpServletRequest request){
 
 

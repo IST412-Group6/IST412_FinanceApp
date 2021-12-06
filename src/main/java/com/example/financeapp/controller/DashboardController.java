@@ -1,6 +1,7 @@
 package com.example.financeapp.controller;
 
 import com.example.financeapp.model.Loan;
+import com.example.financeapp.model.User;
 import com.example.financeapp.repository.*;
 import com.example.financeapp.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,17 +64,15 @@ public class DashboardController {
                 request.getSession().getAttribute("userid"));
         model.addAttribute("Session", checkSession);
         //add additional model attributes here for dashboard template
-        model.addAttribute("bankAccount", "No accounts linked");
-
-        model.addAttribute("curAppStatus", "Loan Application Status");
-
+        User user = userService.getUserByUserId(checkSession);
+        String userName = user.getUserFirstName() + " " + user.getUserLastName();
+        model.addAttribute("userName", userName);
+        model.addAttribute("userNum", user.getUserNum());
+        model.addAttribute("userEmail", user.getUserEmail());
+        model.addAttribute("userPhone", user.getUserPhone());
+        model.addAttribute("userFirstName", user.getUserFirstName());
         model.addAttribute("listLoans", loanService.getAllLoansByUser(checkSession));
 
-        //model.addAttribute("curAppDate", "Application submission date");
-        //model.addAttribute("curAppType", "Loan type");
-        //model.addAttribute("curAppDuration", "Loan duration");
-
-        model.addAttribute("documents", "No documents uploaded");
         return "customerMain";
     }
 

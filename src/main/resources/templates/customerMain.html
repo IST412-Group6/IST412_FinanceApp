@@ -38,54 +38,47 @@
 
     <div class="row w-100">
 
-        <div class="col-md-3">
-            <div class="card border-info mx-sm-1 p-3" style="height: 250px">
-                <div class="card border-info shadow text-info p-3 my-card" ><span class="fa fa-address-card-o" aria-hidden="true"></span></div>
-                <div class="text-info text-center mt-3"><h4>My Info</h4></div>
-                <div class="text-info text-center mt-2"><h4 style="font-size: small;text-align: left">User ID: <span th:text="${Session}" th:remove="tag"/> </h4></div>
-                <div class="text-info text-center mt-2"><h4 style="font-size: small;text-align: left">Connected Bank: <span th:text="${bankAccount}" th:remove="tag"/> </h4></div>
-
+        <div class="container-fluid d-flex align-items-center">
+            <div class="row">
+                <div class="col-lg-7 col-md-10">
+                    <h4 class="display-4 text">Hello, <span th:text="${userFirstName}" th:remove="tag"/></h4>
+                    <p class="text mt-0 mb-5">Welcome to your account dashboard. You can manage your contact information, view loan applications, and create new applications.</p>
+                </div>
             </div>
         </div>
+    </div>
 
+        <div class="card border-info mx-sm-1 p-3" style="height: 250px">
+            <div class="card border-info shadow text-info p-3 my-card" ><span class="fa fa-address-card-o" aria-hidden="true"></span></div>
+            <div class="text-info text-left mt-3"><h4>My Info</h4></div>
+            <div class="text-info text-center mt-2"><h4 style="font-size: small;text-align: left">User ID: <span th:text="${Session}" th:remove="tag"/> </h4></div>
+            <div class="text-info text-center mt-2"><h4 style="font-size: small;text-align: left">Name: <span th:text="${userName}" th:remove="tag"/> </h4></div>
+            <div class="text-info text-center mt-2"><h4 style="font-size: small;text-align: left">Customer Number: <span th:text="${userNum}" th:remove="tag"/> </h4></div>
+            <div class="text-info text-center mt-2"><h4 style="font-size: small;text-align: left">Email: <span th:text="${userEmail}" th:remove="tag"/> </h4></div>
+            <div class="text-info text-center mt-2"><h4 style="font-size: small;text-align: left">Phone Number: <span th:text="${userPhone}" th:remove="tag"/> </h4></div>
 
-        <div class="col-md-3">
-            <div class="card border-success mx-sm-1 p-3" style="height: 250px">
-                <div class="card border-success shadow text-success p-3 my-card"><span class="fa fa-eye" aria-hidden="true"></span></div>
-                <div class="text-success text-center mt-3"><h4>Application In Progress</h4></div>
-                <div class="text-success text-center mt-2"><h4 style="font-size: small;text-align: left">Application Status: <span th:text="${curAppStatus}" th:remove="tag"/> </h4></div>
-            </div>
         </div>
 
-        <div class="col-md-3">
-            <div class="text-danger text-center mt-3"><h4>Submitted Applications</h4></div>
-            <table border="1" class="table table-hover table-condensed table-responsive-md">
-                <thread>
-                    <tr>
-                        <th>Application Type</th>
-                        <th>Application Status</th>
-                        <th>Date Submitted</th>
-                    </tr>
-                </thread>
-                <tbody>
+        <div class="text-danger text-center mt-3"><h4>Submitted Applications</h4></div>
+        <table border="1" class="table table-hover table-condensed table-responsive-md">
+            <thread>
                 <tr>
-                <tr th:each="loan : ${listLoans}">
-                    <td th:text="${loan.loanType}"></td>
-                    <td th:text="${loan.status}"</td>
-                    <td th:text="${loan.appDate}"></td>
+                    <th>Application Type</th>
+                    <th>Application Status</th>
+                    <th>Date Submitted</th>
                 </tr>
-                </tr>
-                </tbody>
-            </table>
-            </div>
+            </thread>
+            <tbody>
+            <tr>
+            <tr th:each="loan : ${listLoans}">
+                <td th:text="${loan.loanType}"></td>
+                <td th:text="${loan.status}"</td>
+                <td th:text="${loan.appDate}"></td>
+            </tr>
+            </tr>
+            </tbody>
+        </table>
         </div>
-
-        <div class="col-md-3">
-            <div class="card border-warning mx-sm-1 p-3" style="height: 250px">
-                <div class="card border-warning shadow text-warning p-3 my-card" ><span class="fa fa-inbox" aria-hidden="true"></span></div>
-                <div class="text-warning text-center mt-3"><h4>Documents</h4></div>
-                <div class="text-warning text-center mt-2"><h4 style="font-size: small;text-align: left">Uploaded Documents: <span th:text="${documents}" th:remove="tag"/> </h4></div>
-            </div>
         </div>
 
     </div>
@@ -111,26 +104,6 @@
                                 <div class="col-md-4" style="text-align: center;padding-top: 20px">
                                         <button type="button" class="btn btn-outline-success btn-lg btn-block"><a th:href="@{/loanApp}">New Application</a></button>
                                         <small>Home Loans are excluded*</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row mb-3">
-                <div class="col-md-8">
-                    <div class="card shadow">
-                        <div class="card-body">
-                            <div class="row text-center ">
-                                <div class="col-md-1 mr-2">
-                                    <i class="fa fa-upload fa-2x "></i></br>
-                                </div>
-                                <div class="col-md-6">
-                                    <h4>Upload Documents</h4>
-                                    <p style="font-size: small">Uploads Documents For The Loan Applications.</p>
-                                </div>
-                                <div class="col-md-4" style="text-align: center;padding-top: 10px">
-                                    <button type="button" class="btn btn-outline-success btn-lg btn-block">Upload Document</button>
                                 </div>
                             </div>
                         </div>
