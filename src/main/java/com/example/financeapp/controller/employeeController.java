@@ -1,6 +1,7 @@
 package com.example.financeapp.controller;
 
 import com.example.financeapp.model.Loan;
+import com.example.financeapp.repository.LoanRepository;
 import com.example.financeapp.service.LoanService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -22,8 +23,11 @@ public class employeeController{
     @Autowired
     private LoanService loanService;
 
+    @Autowired
+    private LoanRepository loanRepository;
 
-        @GetMapping("/employee_main")
+
+    @GetMapping("/employee_main")
         public String empMain(Model model, HttpServletRequest request){
 
 
@@ -66,6 +70,49 @@ public class employeeController{
 
 
             return "employee_newapp";
+        }
+        @GetMapping("/employee_app_detail_con/{loanNum}")
+        public String emp_app_detail(Model model, HttpServletRequest request,
+                                     @PathVariable(value = "loanNum") String loanNum1
+                                     ){
+            if (request.getSession().getAttribute("userid") != null) {
+                String checkSession = String.valueOf(
+                        request.getSession().getAttribute("userid"));
+                model.addAttribute("Session", checkSession);
+            }
+
+            Long loanNum = Long.valueOf(Integer.parseInt(loanNum1));
+            System.out.println(loanNum);
+            Loan loan = this.loanService.getLoanById(loanNum);
+            String cusAddFull = loan.getCusAddress1() + "," + loan.getCusAddress2() + "," + loan.getCusCity() + "," +
+                    loan.getCusRegion() + "," + loan.getCusState() + "," + loan.getCusZip();
+            System.out.println(cusAddFull);
+
+
+
+            model.addAttribute("loan", loan);
+            model.addAttribute("cusAddFull", cusAddFull);
+
+
+
+            return "employee_app_detail";
+        }
+        @GetMapping("/statusUpdate")
+    String updateStatus(HttpServletRequest request, Model model,
+                        @RequestParam(value = "status") String status ,
+                        @RequestParam(value = "cusID") String cusID,
+                        @RequestParam(value = "loan_num") String loan_num1
+
+        ){
+            if (request.getSession().getAttribute("userid") != null) {
+                String checkSession = String.valueOf(
+                        request.getSession().getAttribute("userid"));
+                model.addAttribute("Session", checkSession);
+            }
+            Long loan_num = Long.valueOf(Integer.parseInt(loan_num1));
+            this.loanRepository.updateStatus(status,loan_num,cusID);
+            System.out.println("Updated");
+            return "/employee_main";
         }
 
 

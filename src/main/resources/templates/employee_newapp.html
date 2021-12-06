@@ -40,19 +40,21 @@
                         <thead class="thead-primary">
                         <tr>
                             <th>Application Number</th>
-                            <th>Applied Date</th>
                             <th>Customer ID</th>
                             <th>Loan type</th>
+                            <th>Applied Date</th>
                             <th>View Detail</th>
+                            <th>Application Status</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr th:each="loan : ${LoanList}">
                             <td th:text="${loan.loanNum}">1</td>
-                            <td th:text="${loan.appDate}">2</td>
                             <td th:text="${loan.cusID}">3</td>
                             <td th:text="${loan.loanType}">4</td>
-                            <td> <a th:href="@{#}" class="btn "><span class="fa fa-list-ul" aria-hidden="true"></span>&nbsp;View</a>
+                            <td th:text="${loan.appDate}">2</td>
+                            <td th:text="${loan.status}">2</td>
+                            <td> <a th:href="@{/employee_app_detail_con/{loanNum} (loanNum =${loan.loanNum}) } " class="btn "><span class="fa fa-list-ul" aria-hidden="true"></span>&nbsp;View</a>
                             </td>
                         </tr>
                         </tbody>
