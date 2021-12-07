@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.Locale;
 
 @Controller
 public class DashboardController {
@@ -74,6 +75,16 @@ public class DashboardController {
         model.addAttribute("listLoans", loanService.getAllLoansByUser(checkSession));
 
         return "customerMain";
+    }
+
+    @GetMapping("/edit_account")
+    public String editAcc(Locale locale, Model model, HttpServletRequest request) {
+        if(request.getSession().getAttribute("userid") != null){
+            String checkSession = String.valueOf(
+                    request.getSession().getAttribute("userid"));
+            model.addAttribute("Session", checkSession);
+        }
+        return "edit_account";
     }
 
 }

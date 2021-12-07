@@ -48,12 +48,12 @@
         </ul>
     </div>
 </nav>
-<!-- main Content-->
+ main Content-->
 <div class="container" style="margin-top: 10px; text-align: center;background-color: darkgrey">
     <h1 style="color: black;">Edit Account - Member Form</h1><br>
 
     <table>
-        <form id="edit_account" name="edit_account" th:action="@{/edit_account.html/newMember}"  th:object="${user}" method="POST" style="padding-top: 50px">
+        <form id="edit_account" name="edit_account" th:action="@{/edit_account/newMember}" th:object="${user}" method="POST" style="padding-top: 50px">
 
             <tr>
                 <td>

@@ -23,15 +23,7 @@ import java.util.Locale;
 @Controller
 public class EditAccountController {
 
-    @GetMapping("/edit_account")
-    public String editAcc(Locale locale, Model model, HttpServletRequest request) {
-        if(request.getSession().getAttribute("userid") != null){
-            String checkSession = String.valueOf(
-                    request.getSession().getAttribute("userid"));
-            model.addAttribute("Session", checkSession);
-        }
-        return "edit_account";
-    }
+
     private static final Logger log = LoggerFactory.getLogger(EditAccountController.class);
     private  UserRepository userRepository;
 
