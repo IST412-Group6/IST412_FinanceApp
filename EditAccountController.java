@@ -71,7 +71,7 @@ public class EditAccountController {
         userService.saveUser(user);
         return "redirect:/customerMain";*/
         @PostMapping("/edit_account")
-        public String updateAcc( Model model, HttpServletRequest request,
+        public String updateAcc( User user, Model model, HttpServletRequest request,
         @RequestParam(value = "user_email") String userEmail,
         @RequestParam(value ="user_phone") String userPhone,
         @RequestParam(value ="user_password") String userPassword) {
@@ -81,9 +81,12 @@ public class EditAccountController {
                         request.getSession().getAttribute("userid"));
                 model.addAttribute("Session", checkSession);
             }
-            model.addAttribute(userPassword);
-            model.addAttribute(userEmail);
-            model.addAttribute(userPhone);
+
+            user.setUserEmail(userEmail);
+            user.setUserPhone(userPhone);
+            user.setUserPassword(userPassword);
+
+            userService.saveUser(user);
 
 
             return "redirect:/customerMain";
