@@ -49,13 +49,13 @@ public class ViewAccountController {
     }
 
 
-    @GetMapping("/employee_screen")
+    @GetMapping("/view_account")
     public String ViewAccount(Locale locale, Model model, HttpServletRequest request) {
         if(request.getSession().getAttribute("userid") != null){
             String checkSession = String.valueOf(
                     request.getSession().getAttribute("userid"));
             model.addAttribute("Session", checkSession);
         }
-        return "employee_app_detail";
+        return "view_account";
     }
 }
