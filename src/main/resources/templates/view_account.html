@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <title>ATZ Finance - View Account</title>
+    <style>
+        table, td {
+            text-align: left;
+        }
+        td {
+            padding: 25px;
+
+        }
+        table{
+
+            width: 100%;
+            text-align: left;
+
+
+        }
+        input{
+            width: 1000px;
+            height: 35px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<!-- navigation bar-->
+<!-- navigation bar-->
+<div style="position:sticky; top:0 ;" th:if = "${Session} != null" th:insert="inc/Sessionheader">...</div>
+<div style="position:sticky; top:0 ;" th:unless = "${Session} != null" th:insert="inc/header">...</div>
+<!--<nav class="navbar navbar-inverse" style="position: sticky; top:0;">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <li> <p style="align-self: center; margin-top: 10px;font-size: large; color:  ghostwhite">ATZ Finance</p></li>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a th:href="@{/home}">Main</a></li>
+            <li><a th:href="@{#}"><em class="glyphicon glyphicon-user" aria-disabled="true"></em>Join</a></li>
+            <li><a th:href="@{/login}"><em class="glyphicon glyphicon-log-in"></em>Sign-In</a></li>
+        </ul>
+    </div>
+</nav>
+ main Content-->
+<div class="container" style="margin-top: 10px; text-align: center;background-color: darkgrey">
+    <h1 style="color: black;">View Account - Member Form</h1><br>
+
+    <table>
+        <form id="view_account" name="view_account" th:action="@{/view_account/}" th:object="${user}" method="GET" style="padding-top: 50px">
+
+            <tr>
+                <td>
+                    <label for = "userId" class="btn btn-primary">View Details:<br>
+                        <input type="button" id="userId" th:field="*{userId}" required>
+                    </label>
+                </td>
+            </tr>
+
+
+            <tr>
+                <label for = "userEmail" class="btn btn-primary">View Details:<br>
+                        <input type="button" id="userEmail" th:field="*{userEmail}" required>
+                    </label>
+                </td>
+            </tr>
+
+
+        </form>
+    </table>
+    <button type="button" class="btn btn-outline-success btn-lg btn-block"> Back to Customer Info</button>
+
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br>
+
+<!--footer -->
+<footer class="site-footer" style="position: relative;bottom: 30px; left: 250px ">
+    <div class="container">
+        <p class="text-justify">Made By:<br>
+            Alexa Mclnvaille,   Amirhamzah Waseem Chaudhry,    Jihun Suk,  Othman Adebayo Gbadamassi</p>
+    </div>
+    <div class="container">
+
+        <p class="copyright-text">Copyright &copy; 2021 All Rights Reserved by
+            <span>IST412 - Group 6</span>.
+        </p>
+    </div>
+</footer>
+
+
+
+</body>
+</html>
